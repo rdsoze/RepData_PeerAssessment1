@@ -47,7 +47,7 @@ plot(averageSteps$interval, averageSteps$steps, type='l', xlab='interval', ylab=
 
 ```{r echo=TRUE}
 maxSteps <- max(averageSteps$steps)
-interval <- averageSteps[averageSteps == maxSteps, ][['interval']]
+interval <- averageSteps[averageSteps$steps == maxSteps, ][['interval']]
 ```
 The  5-minute interval containing the maximum number of steps is `r interval` with a value of `r maxSteps`.
 
@@ -57,7 +57,7 @@ missingCnt <- sum(!complete.cases(data))
 ```
 The count of missing data is `r missingCnt`.
 
-Creating a new dataset and filling in the missing data
+Creating a new dataset and filling in the missing data by using the previously calculated mean for a given time interval
 ```{r echo=TRUE}
 newData <- data
 for(i in 1:nrow(newData)){

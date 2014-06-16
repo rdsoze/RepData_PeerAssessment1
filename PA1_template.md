@@ -59,9 +59,9 @@ plot(averageSteps$interval, averageSteps$steps, type='l', xlab='interval', ylab=
 
 ```r
 maxSteps <- max(averageSteps$steps)
-interval <- averageSteps[averageSteps == maxSteps, ][['interval']]
+interval <- averageSteps[averageSteps$steps == maxSteps, ][['interval']]
 ```
-The  5-minute interval containing the maximum number of steps is NA with a value of 206.1698.
+The  5-minute interval containing the maximum number of steps is 835 with a value of 206.1698.
 
 ## Imputing missing values
 
@@ -70,7 +70,7 @@ missingCnt <- sum(!complete.cases(data))
 ```
 The count of missing data is 2304.
 
-Creating a new dataset and filling in the missing data
+Creating a new dataset and filling in the missing data by using the previously calculated mean for a given time interval
 
 ```r
 newData <- data
